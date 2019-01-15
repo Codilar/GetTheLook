@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="3columns" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+    <referenceContainer name="content">
+        <block class="Codilar\ProductListing\Block\Navigation" name="subCategory_nav" template="Codilar_ProductListing::text.phtml"  cacheable="false" />
+        <block class="Codilar\ProductListing\Block\Customised" name="subcategory_product" template="Codilar_ProductListing::subcategoryBlock.phtml"  cacheable="false" />
+    </referenceContainer>
+        <referenceContainer name="sidebar.main">
+            <block class="Codilar\ProductListing\Block\CategoryLook" name="catalog.leftnav" before="-" template="Codilar_ProductListing::navigation/left.phtml" cacheable="false" />
+        </referenceContainer>
+        <referenceContainer name="div.sidebar.additional">
+            <block class="Codilar\ProductListing\Block\Select" name="right.reports.product.viewed" template="Codilar_ProductListing::selected.phtml" cacheable="false" />
+            <block class="Codilar\ProductListing\Block\Cart" name="subcategory_select_product" template="Codilar_ProductListing::cart.phtml"  cacheable="false" />
+        </referenceContainer>
+        <referenceContainer name="footer" remove="true"/>
+        <referenceBlock name="catalog.topnav" remove="true"/>
+        <referenceBlock name="catalog.compare.sidebar" remove="true" />
+        <referenceBlock name="wishlist_sidebar" remove="true" />
+        <referenceBlock name="header.container" remove="true" />
+    </body>
+</page>

@@ -1,0 +1,24 @@
+<?php
+/**
+ * @var \Codilar\ProductListing\Block\Cart block
+ */
+$product_id=$block->getProductId();
+if (!empty($product_id)) {
+    $product = $block->getProductBySku($product_id);
+}
+$imageId = 'product_base_image';
+$width = 100;
+$height = 100;
+?>
+
+
+<?php if (!empty($product)) {
+    ?>
+        <?php
+    $resizedImageUrl = $block->resizeImage($product, 'product_base_image', $width, $height)->getUrl(); ?>
+        <img src="<?= $resizedImageUrl; ?>" alt="<?= $product->getTitle(); ?>" class="<?='img'?>"  id="<?=$block->getSubCatName()?>"  />
+
+        <?php
+} ?>
+
+

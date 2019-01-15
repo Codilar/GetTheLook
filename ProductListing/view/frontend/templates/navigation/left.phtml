@@ -1,0 +1,25 @@
+<?php
+/**
+ * @var Codilar\ProductListing\Block\CategoryLook $block
+ */
+?>
+<style>
+    #maincontent{
+        max-width: none;
+    }
+    #main-category{
+        border: 2px solid green;
+        width: 51%;
+        margin: 48px;
+        text-decoration: none;
+        list-style-type: none;
+        padding: 7px 0px 10px 24px;
+
+    }
+</style>
+<div id="main-category">
+<?php
+foreach ($block->getStoreCategories() as $category) :?>
+    <li><a href="<?=$this->getUrl('customised/index/choose', ['maincategory'=>$category->getData('name')])?>"><?=$category->getData('name')?></a></li>
+<?php endforeach;?>
+</div>

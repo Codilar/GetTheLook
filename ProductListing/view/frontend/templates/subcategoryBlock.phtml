@@ -1,0 +1,35 @@
+<?php
+
+/**
+ * @var Codilar\ProductListing\Block\Customised $block
+ */
+$productCollection =$block->getProductByCategoryId($block->getSubCat())->setPageSize(7);
+$imageId = 'product_base_image';
+$width = 180;
+$height = 150;
+?>
+<style>
+    #Tops-block{
+border:2px solid red;
+        padding-top: 10px;
+        margin-top: 6px;
+    }
+    #Bottoms-block{
+    border:2px solid blue;
+        padding: 10px 10px 10px 10px;
+        margin-top: 6px;
+    }
+</style>
+
+<?php if (!empty($productCollection)) {
+    ?>
+        <?php foreach ($productCollection as $product) {
+        ?>
+            <?php $_product = $block->getProductBySku($product->getSku());
+        $resizedImageUrl = $block->resizeImage($product, 'product_base_image', $width, $height)->getUrl(); ?>
+            <img src="<?= $resizedImageUrl; ?>" alt="<?= $_product->getTitle(); ?>" class="<?= 'img'?>"  data-img="<?=$block->getSubCat()?>"  data-catname="<?=$block->getSubName()?>" data-productid="<?=$product->getSku()?>" />
+
+            <?php
+    } ?>
+    <?php
+}?>

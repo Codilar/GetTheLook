@@ -1,0 +1,32 @@
+
+<nav id="subcategory">
+<?php
+if (!empty($block->getChildCategory())) {
+    foreach ($block->getChildCategory() as $subcategory) {
+        ?>
+    <button id="<?=$subcategory->getName()?>" class ="subcategory-button" data-id="<?= $subcategory->getId()?>" data-href="<?=$subcategory->getName()?>" > <?=$subcategory->getName()?> </button>
+<?php
+    }
+}?>
+</nav>
+    <?php
+    if (!empty($block->getChildCategory())) {
+        foreach ($block->getChildCategory() as $subcategory) {
+            ?>
+            <div id="<?=$subcategory->getName() . "-block"?>" class ="subcategory block" data-id="<?= $subcategory->getId()?>" data-href="<?=$subcategory->getName()?>" >  </div>
+            <?php
+        }
+    }?>
+
+
+
+
+
+
+<script type="text/x-magento-init">
+{
+    "*":{
+        "Codilar_ProductListing/js/subCategory": {}
+    }
+}
+</script>
